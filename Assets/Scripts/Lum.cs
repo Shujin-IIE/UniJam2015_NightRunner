@@ -13,7 +13,9 @@ public class Lum : MonoBehaviour {
 
 	private float x, y, time;
 
-
+	[SerializeField]
+	private AudioClip[] lumSounds;
+	private float volume;
 
 	void Start () {
 		x = Random.Range(-velocityMax, velocityMax);
@@ -22,6 +24,8 @@ public class Lum : MonoBehaviour {
 		yMax = transform.localPosition.y + yMax;
 		xMin = transform.localPosition.x + xMin;
 		yMin = transform.localPosition.y + yMin;
+
+		volume = 0.8f;
 	}
 	
 	void Update () {
@@ -57,9 +61,22 @@ public class Lum : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("Player")) {
+			// Gestion son
+			AudioSource audio = GetComponent<AudioSource>();
+			var lumSound = lumSounds[Random.Range(0,lumSounds.Length)];
+			audio.clip = lumSound;
+			audio.volume = volume;
+			audio.Play();
+			// Destruction objet
 			lumExplode = Instantiate (lumExplodePrefab,transform.localPosition, Quaternion.identity) as GameObject;
-			Destroy (gameObject);
+			Destroy (gameObject.GetComponent<Renderer>());
+			Destroy (gameObject.GetComponent<BoxCollider>());
 			Destroy (lumExplode.gameObject,1.0f);
+			Destroy (gameObject,1.0f);
 		}
+	}
+
+	AudioClip getRandomLumSound(){
+		return lumSounds [Random.Range (0, lumSounds.Length)];
 	}
 }
