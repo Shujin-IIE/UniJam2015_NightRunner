@@ -6,6 +6,7 @@ public class BackgroundManager : MonoBehaviour
 	private GameObject Background;
 
 	private float offset = 0f;
+	private float prevOffset = 0f;
 
 	public void SetupBackground()
 	{
@@ -20,28 +21,19 @@ public class BackgroundManager : MonoBehaviour
 
 	void Start ()
 	{
-		Background = Factory.Instance.GetObject(Factory.Elements.Background);
-		Background.SetActive(true);
-		SetupBackground();
-		Background.transform.position = new Vector3(-20, 3, -27);
-
-		Background = Factory.Instance.GetObject(Factory.Elements.Background);
-		Background.SetActive(true);
-		SetupBackground();
-		Background.transform.position = new Vector3(-20+offset, 3, -27);
-
+		float OffsetY = 0;
+		for (int j=0; j<3; j++)
+		{
+		for (int i = 0; i<4; i++)
+		{
+			Background = Factory.Instance.GetObject(Factory.Elements.Background);
+			Background.SetActive(true);
+			SetupBackground();
+			Background.transform.position = new Vector3(-20, 3-OffsetY, -27);
+		}
 		offset = 0;
-		float offsetY = -100;
-
-		Background = Factory.Instance.GetObject(Factory.Elements.Background);
-		Background.SetActive(true);
-		SetupBackground();
-		Background.transform.position = new Vector3(-20, 3-100, -27);
-		
-		Background = Factory.Instance.GetObject(Factory.Elements.Background);
-		Background.SetActive(true);
-		SetupBackground();
-		Background.transform.position = new Vector3(-20+offset, 3-100, -27);
+		OffsetY += 100;
+		}
 	}
 
 	void Update ()
