@@ -168,6 +168,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d897a11eae6cf6d4486d93aae332b21a, type: 3}
   - {fileID: 8300000, guid: 6db272cd674815f41b5eae3afcd8fdca, type: 3}
   - {fileID: 8300000, guid: 593e624613da18b46917e251269bc377, type: 3}
+  bonusValue: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
