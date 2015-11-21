@@ -16,7 +16,7 @@ public class Lum : MonoBehaviour {
 	[SerializeField]
 	private AudioClip[] lumSounds;
 	private float volume;
-
+	
 	private LightManager lm;
 	[SerializeField]
 	private float bonusValue;

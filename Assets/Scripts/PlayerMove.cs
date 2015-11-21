@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour {
 	[SerializeField]
 	private AudioClip runLoop;
 
+	public float threshold = 0.3f;
+
 	private void Start ()
 	{
 		Engine = GetComponent<Engine2D>();
@@ -51,7 +53,9 @@ public class PlayerMove : MonoBehaviour {
 
 	private bool IsGrounded()
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, PivotToGround + 0.5f);
+		Debug.Log(transform.position.y);
+		return transform.position.y < threshold;
+//		return Physics.Raycast(transform.position, -Vector3.up, PivotToGround + 0.5f);
 	}
 
 

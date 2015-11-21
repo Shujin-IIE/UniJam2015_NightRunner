@@ -305,7 +305,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 582117643}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 33db75a0a369c47fcb79a48a01bcabb2, type: 2}
   m_CullingMode: 0
@@ -373,7 +373,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 582117643}
   serializedVersion: 2
-  m_Mass: 300
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -392,8 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fedac46cf5e40e6ab7e797121912ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
-  JumpHeigth: .800000012
+  Speed: 3
+  JumpHeigth: 7
 --- !u!114 &582117650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 0}
   runLoop: {fileID: 0}
+  threshold: .300000012
 --- !u!1001 &692766836
 Prefab:
   m_ObjectHideFlags: 0
@@ -636,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1387933091}
+  YOffset: 0
 --- !u!114 &1180213119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,6 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 0}
   runLoop: {fileID: 0}
+  threshold: .25
 --- !u!114 &1387933097
 MonoBehaviour:
   m_ObjectHideFlags: 0
