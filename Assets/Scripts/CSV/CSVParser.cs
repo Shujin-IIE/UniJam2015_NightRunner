@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-// DEBUG: remove the inheritance MonoBehavior and the Start method if you want to not test the class
 // Don't forget that Unity's working directory is Asset-Library-obj… folder when you try to parse a file
-public class CSVParser : MonoBehaviour {
+public class CSVParser {
 	public static int[,] ParseCSVtoArray (string csvFileName) {
 		// Width and Height of the CSV file
 		int countLine = 0;
@@ -61,9 +60,5 @@ public class CSVParser : MonoBehaviour {
 		}
 
 		return arrayParsed;
-	}
-
-	void Start () {
-		ParseCSVtoArray("./Assets/Scripts/CSV/CSV-test.csv");
 	}
 }
