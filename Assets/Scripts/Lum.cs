@@ -18,6 +18,10 @@ public class Lum : MonoBehaviour {
 	void Start () {
 		x = Random.Range(-velocityMax, velocityMax);
 		y = Random.Range(-velocityMax, velocityMax);
+		xMax = transform.localPosition.x + xMax;
+		yMax = transform.localPosition.y + yMax;
+		xMin = transform.localPosition.x + xMin;
+		yMin = transform.localPosition.y + yMin;
 	}
 	
 	void Update () {
@@ -54,7 +58,7 @@ public class Lum : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("Player")) {
 			lumExplode = Instantiate (lumExplodePrefab,transform.localPosition, Quaternion.identity) as GameObject;
-			Destroy (other.gameObject);
+			Destroy (gameObject);
 			Destroy (lumExplode.gameObject,1.0f);
 		}
 	}
