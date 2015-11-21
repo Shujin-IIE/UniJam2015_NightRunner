@@ -17,6 +17,10 @@ public class Lum : MonoBehaviour {
 	private AudioClip[] lumSounds;
 	private float volume;
 
+	private LightManager lm;
+	[SerializeField]
+	private float bonusValue;
+
 	void Start () {
 		x = Random.Range(-velocityMax, velocityMax);
 		y = Random.Range(-velocityMax, velocityMax);
@@ -26,6 +30,8 @@ public class Lum : MonoBehaviour {
 		yMin = transform.localPosition.y + yMin;
 
 		volume = 0.8f;
+
+		lm = GameObject.Find("Point light").GetComponent<LightManager>();
 	}
 	
 	void Update () {
@@ -61,6 +67,9 @@ public class Lum : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("Player")) {
+			// Add bonus value
+			lm.ModifyIntensity(bonusValue);
+
 			// Gestion son
 			AudioSource audio = GetComponent<AudioSource>();
 			var lumSound = lumSounds[Random.Range(0,lumSounds.Length)];
