@@ -8,24 +8,20 @@ public class CameraManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject Player;
 
-	[SerializeField]
-	private float XOffset = 10;
-
-	[SerializeField]
-	private float YOffset = -10;
-
-	[SerializeField]
-	private float ZOffset = -10;
-
-
-
+	// Camera offset init from the camera initial position
+	private float XOffset;
+	private float YOffset;
+	private float ZOffset;
+	
 	void Start () 
 	{
-	
+		XOffset = transform.position.x;
+		YOffset = transform.position.y;
+		ZOffset = transform.position.z;
 	}
 
 	void Update () 
 	{
-		transform.position = new Vector3(Player.transform.position.x + XOffset, Player.transform.position.y + YOffset, Player.transform.position.z + ZOffset);
+		transform.position = new Vector3(Player.transform.position.x + XOffset, YOffset, Player.transform.position.z + ZOffset);
 	}
 }
