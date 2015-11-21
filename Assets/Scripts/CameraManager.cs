@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour {
 
 	// Camera offset init from the camera initial position
 	private float XOffset;
-	private float YOffset;
+	public float YOffset;
 	private float ZOffset;
 	
 	void Start () 
