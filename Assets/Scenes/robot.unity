@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c4aff197a654a5a90e945d536296e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityMax: 8
+  intensityMax: 7
   deltaDiminishTime: 2
   diminishValue: .5
 --- !u!1 &1180213112
