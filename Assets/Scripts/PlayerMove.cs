@@ -11,6 +11,13 @@ public class PlayerMove : MonoBehaviour {
 
 	private float PivotToGround;
 
+	private AudioSource audio;
+
+	[SerializeField]
+	private AudioClip jumpSound;
+	[SerializeField]
+	private AudioClip runLoop;
+
 	private void Start ()
 	{
 		Engine = GetComponent<Engine2D>();
@@ -20,11 +27,16 @@ public class PlayerMove : MonoBehaviour {
 		}
 		UserEvent.Instance.OnUserInputAxis += EventHandler;
 		PivotToGround = (GetComponent<BoxCollider>().size.y)/2;
+
+		/*var audio = GetComponent<AudioSource> ();
+		audio.clip = runLoop;
+		audio.loop = true;
+		audio.Play ();*/
 	}
 
 	private void Update ()
 	{
-		
+
 	}
 
 	private void EventHandler(float hor, float ver)
@@ -35,6 +47,7 @@ public class PlayerMove : MonoBehaviour {
 			Engine.Jump();
 		}
 	}
+	
 
 	private bool IsGrounded()
 	{

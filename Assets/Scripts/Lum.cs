@@ -25,7 +25,7 @@ public class Lum : MonoBehaviour {
 		xMin = transform.localPosition.x + xMin;
 		yMin = transform.localPosition.y + yMin;
 
-		volume = 0.8f;
+		volume = 1.0f;
 	}
 	
 	void Update () {
