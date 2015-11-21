@@ -23,7 +23,7 @@ public class UserEvent : MonoBehaviour {
 			if  (Input.GetKeyDown(KeyCode.LeftArrow)) {
 				OnUserInput(KeyCode.LeftArrow);
 			}
-			else if (Input.GetKeyDown(KeyCode.RightArrow)){
+			if (Input.GetKeyDown(KeyCode.RightArrow)) {
 				OnUserInput(KeyCode.RightArrow);
 			}
 		}

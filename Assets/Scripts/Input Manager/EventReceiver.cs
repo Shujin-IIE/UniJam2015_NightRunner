@@ -4,12 +4,14 @@ using System.Collections;
 // Be affected byt the InputManager
 public class EventReceiver : MonoBehaviour {
 
-	private InputManager inputManager;
+	[SerializeField]
+	private GameObject userObject;
+	private UserEvent userEvent;
 
 	// Use this for initialization
 	void Start () {
-		inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
-		inputManager.OnActions += EventHandler;
+		userEvent = userObject.GetComponent<UserEvent>();
+		userEvent.OnUserInput += EventHandler;
 	}
 	
 	// Update is called once per frame
