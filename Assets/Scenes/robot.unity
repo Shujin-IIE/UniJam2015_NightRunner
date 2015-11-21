@@ -188,6 +188,14 @@ Prefab:
       propertyPath: m_Name
       value: Lum (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.45000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.44000006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
   m_IsPrefabParent: 0
@@ -445,6 +453,10 @@ Prefab:
     - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.30000019
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
@@ -942,6 +954,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.18999958
+      objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.38999999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
   m_IsPrefabParent: 0
@@ -988,6 +1008,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.07999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 411564, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.91999996
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e547715585a51047b28c3a2e9b86a50, type: 2}
   m_IsPrefabParent: 0
@@ -1000,6 +1028,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1982858020}
   - 108: {fileID: 1982858021}
+  - 114: {fileID: 1982858022}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -1051,6 +1080,20 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &1982858022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982858019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c4aff197a654a5a90e945d536296e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensityMax: 8
+  deltaDiminishTime: 2
+  diminishValue: .5
 --- !u!1001 &2102215542
 Prefab:
   m_ObjectHideFlags: 0
