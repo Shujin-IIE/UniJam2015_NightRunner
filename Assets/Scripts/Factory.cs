@@ -12,6 +12,18 @@ using System.Collections.Generic;
 
 public class Factory : MonoBehaviour 
 {
+	public static Factory Instance
+	{
+		get;
+		private set;
+	}
+	private void Awake()
+	{
+		if (Instance != null)
+			return;
+		Instance = this;
+	}
+
 	//Object types that need to be stored in the factory
 	public enum Elements {Firefly, Background, Length /*length of the enum*/};
 
