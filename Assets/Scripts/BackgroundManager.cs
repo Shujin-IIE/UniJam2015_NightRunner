@@ -5,9 +5,10 @@ public class BackgroundManager : MonoBehaviour
 {
 	private GameObject Background;
 
+	private float offset = 0f;
+
 	public void SetupBackground()
 	{
-		float offset = 0;
 		Debug.Log ("chilcount = " + Background.transform.childCount.ToString());
 		for (int i = 0; i<Background.transform.childCount; i++)
 		{
@@ -23,7 +24,24 @@ public class BackgroundManager : MonoBehaviour
 		Background.SetActive(true);
 		SetupBackground();
 		Background.transform.position = new Vector3(-20, 3, -27);
-		//Background.GetComponent<SpriteRenderer>().receiveShadows = true;
+
+		Background = Factory.Instance.GetObject(Factory.Elements.Background);
+		Background.SetActive(true);
+		SetupBackground();
+		Background.transform.position = new Vector3(-20+offset, 3, -27);
+
+		offset = 0;
+		float offsetY = -100;
+
+		Background = Factory.Instance.GetObject(Factory.Elements.Background);
+		Background.SetActive(true);
+		SetupBackground();
+		Background.transform.position = new Vector3(-20, 3-100, -27);
+		
+		Background = Factory.Instance.GetObject(Factory.Elements.Background);
+		Background.SetActive(true);
+		SetupBackground();
+		Background.transform.position = new Vector3(-20+offset, 3-100, -27);
 	}
 
 	void Update ()
