@@ -15,31 +15,31 @@ public class Factory : MonoBehaviour
 	//Object types that need to be stored in the factory
 	public enum Elements {Firefly, Background, Length /*length of the enum*/};
 
-	[SerializedField]
+	[SerializeField]
 	private GameObject prefabFirefly;
 
-	[SerializedFiled]
+	[SerializeField]
 	private GameObject prefabBackground;
 
 
-	private GameObject[] Prefabs = new GameObject[Elements.Length];
+	private GameObject[] Prefabs = new GameObject[(int) Elements.Length];
 
-	private List<GameObject>[] ObjectList = new List<GameObject>[Elements.Length];
+	private List<GameObject>[] ObjectList = new List<GameObject>[(int) Elements.Length];
 
 	private void Start()
 	{
-		for (int i = 0; i<Elements.Length; i++)
+		for (int i = 0; i<(int)Elements.Length; i++)
 		{
 			ObjectList[i] = new List<GameObject>();
 		}
 		//links between prefabs and enum
-		Prefabs[Elements.Firefly] = prefabFirefly;
-		Prefabs[Elements.Background] = prefabBackground;
+		Prefabs[(int) Elements.Firefly] = prefabFirefly;
+		Prefabs[(int) Elements.Background] = prefabBackground;
 	}
 
 	public GameObject GetObject(Elements element)
 	{
-		List<GameObject> list = ObjectList[element];
+		List<GameObject> list = ObjectList[(int) element];
 		GameObject obj;
 		if (list.Count > 0)
 		{
@@ -48,7 +48,7 @@ public class Factory : MonoBehaviour
 		}
 		else
 		{
-			obj = Instantiate(Prefabs[element], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+			obj = Instantiate(Prefabs[(int) element], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 			obj.SetActive(false);
 		}
 		return obj;
@@ -56,7 +56,7 @@ public class Factory : MonoBehaviour
 
 	public void DisableObject(GameObject obj, Elements element)
 	{
-		List<GameObject> list = ObjectList[element];
+		List<GameObject> list = ObjectList[(int) element];
 		obj.SetActive(false);
 		if (!list.Contains(obj))
 		{
