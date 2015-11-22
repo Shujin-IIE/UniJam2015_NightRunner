@@ -430,7 +430,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 8
 --- !u!1 &243190647
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +457,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &271423099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   Climax2: {fileID: 1384626263}
   Death: {fileID: 1559879309}
   Death2: {fileID: 243190647}
-  Camera: {fileID: 1180213112}
+  Camera: {fileID: 0}
 --- !u!1 &476148672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,10 +2930,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!1 &1180213112 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 110828, guid: 174dd5aad4b764b5a90e7d59a6567c55, type: 2}
-  m_PrefabInternal: {fileID: 1490431518}
 --- !u!1 &1180764478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,6 +3915,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1387933091}
+    - target: {fileID: 11411140, guid: 174dd5aad4b764b5a90e7d59a6567c55, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 580994472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 174dd5aad4b764b5a90e7d59a6567c55, type: 2}
   m_IsPrefabParent: 0
@@ -4021,7 +4021,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1572899677
 GameObject:
   m_ObjectHideFlags: 0
