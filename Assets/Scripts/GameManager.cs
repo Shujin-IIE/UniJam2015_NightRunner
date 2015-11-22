@@ -11,6 +11,18 @@ public class GameManager : MonoBehaviour {
 
 	private bool ClimaxMode = false;
 
+	public static GameManager Instance
+	{
+		get;
+		private set;
+	}
+	private void Awake()
+	{
+		if (Instance != null)
+			return;
+		Instance = this;
+	}
+
 
 	[SerializeField]
 	private GameObject Player;
@@ -166,7 +178,7 @@ public class GameManager : MonoBehaviour {
 		Camera.GetComponent<ambianceManager>().zone = "calme";
 	}
 
-	private void OnGameOver()
+	public void OnGameOver()
 	{
 		Debug.Log ("Game Over !");
 	}
