@@ -41,7 +41,7 @@ public class LightManager : MonoBehaviour {
 
 			lastDiminish = Time.time;
 			if (light.intensity <= 0) {
-				// TODO: Die?
+				GameManager.Instance.OnGameOver();
 			}
 		}
 	}

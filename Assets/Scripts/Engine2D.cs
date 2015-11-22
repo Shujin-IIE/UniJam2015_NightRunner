@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class Engine2D : MonoBehaviour
 {
@@ -40,6 +40,7 @@ public class Engine2D : MonoBehaviour
 			Debug.Log ("grounded = " + Grounded.ToString());
 			if (interuptorIsGrounded == true){
 				audio.Play();
+				audio.loop = true;
 				interuptorIsGrounded = false;
 			}
 			Grounded = true;
@@ -51,6 +52,15 @@ public class Engine2D : MonoBehaviour
 
 	public void Move(float hor, float ver)
 	{
+		float velX = (hor != 0) ?  8*(hor/Mathf.Abs(hor)) : 0;
+
+		if (GameManager.Instance.CurrentLevel == 1 || GameManager.Instance.CurrentLevel == 3) {
+			velX = (velX > 0) ? 0 : velX;
+		}
+		else {
+			velX = (velX < 0) ? 0 : velX;
+		}
+		Body.velocity = new Vector3(velX, Body.velocity.y, Body.velocity.z);
 		transform.Translate(new Vector3(0, 0, ver) * Speed * Time.deltaTime);
 	}
 
@@ -63,6 +73,13 @@ public class Engine2D : MonoBehaviour
 		Grounded = false;
 			audio.Stop();
 			interuptorIsGrounded = true;
+		}
+	}
+
+	public void OnTriggerEnter (Collider other) {
+		if (other.tag == "Enemy") {
+			Debug.Log("trig");
+			Body.velocity = new Vector3(-8, Body.velocity.y, Body.velocity.z);
 		}
 	}
 }

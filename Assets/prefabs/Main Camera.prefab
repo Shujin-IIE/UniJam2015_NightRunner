@@ -251,11 +251,14 @@ MonoBehaviour:
   whiteNoisePrefab: {fileID: 103036, guid: bb023b20cd1ac4b418971027a7de2658, type: 2}
   duration: 0
   zone: 
+  lvl: 0
+  temps: 0
   glitchs:
   - {fileID: 8300000, guid: a2a9ab9ec77ac4a86a3d20e5711d01a7, type: 3}
   - {fileID: 8300000, guid: abd7c905c14334753a33ae514669a215, type: 3}
   - {fileID: 8300000, guid: 6ce85c73f24d54ad2b33bcc77534b7de, type: 3}
   - {fileID: 8300000, guid: 4716fe66533f0481fb07759d640f7265, type: 3}
+  interuptor: 0
 --- !u!124 &12450788
 Behaviour:
   m_ObjectHideFlags: 1
