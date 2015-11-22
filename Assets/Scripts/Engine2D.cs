@@ -33,11 +33,13 @@ public class Engine2D : MonoBehaviour
 			Grounded = true;
 			playermove.animator.SetInteger("state", 0);
 		}
+
+		transform.Translate(new Vector3(1, 0, 0) * Speed * Time.deltaTime);
 	}
 
 	public void Move(float hor, float ver)
 	{
-		transform.Translate(new Vector3(hor, 0, ver) * Speed * Time.deltaTime);
+		transform.Translate(new Vector3(0, 0, ver) * Speed * Time.deltaTime);
 	}
 
 	public void Jump()
