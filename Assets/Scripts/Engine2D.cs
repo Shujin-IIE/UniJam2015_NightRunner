@@ -14,12 +14,6 @@ public class Engine2D : MonoBehaviour
 
 	private PlayerMove playermove;
 
-	private AudioSource audio;
-
-	[SerializeField]
-	private AudioClip run;
-
-	private bool interuptorIsGrounded;
 
 	private void Start()
 	{
@@ -29,19 +23,13 @@ public class Engine2D : MonoBehaviour
 			Debug.LogWarning("Engine2D : Rigidbody not found");
 		}
 		playermove = GetComponent<PlayerMove>();
-		audio = GetComponent<AudioSource> ();
-		interuptorIsGrounded = true;
 	}
 
 	private void Update()
 	{
 		if (Body.velocity.y == 0)
 		{
-			Debug.Log ("grounded = " + Grounded.ToString());
-			if (interuptorIsGrounded == true){
-				audio.Play();
-				interuptorIsGrounded = false;
-			}
+//			Debug.Log ("grounded = " + Grounded.ToString());
 			Grounded = true;
 			playermove.animator.SetInteger("state", 0);
 		}
@@ -61,8 +49,6 @@ public class Engine2D : MonoBehaviour
 //		Body.AddForce(new Vector3(0, JumpHeigth, 0), ForceMode.Impulse);
 		Body.velocity = new Vector3(Body.velocity.x, JumpHeigth, Body.velocity.z);
 		Grounded = false;
-			audio.Stop();
-			interuptorIsGrounded = true;
 		}
 	}
 }
