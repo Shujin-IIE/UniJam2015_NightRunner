@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Lum : MonoBehaviour {
@@ -29,7 +29,7 @@ public class Lum : MonoBehaviour {
 		xMin = transform.localPosition.x + xMin;
 		yMin = transform.localPosition.y + yMin;
 
-		volume = 0.8f;
+		volume = 1.0f;
 
 		lm = GameObject.Find("Point light").GetComponent<LightManager>();
 	}
