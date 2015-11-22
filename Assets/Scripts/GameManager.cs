@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour {
 	{
 		Debug.Log ("Switch to normal mode for lvl " + lvl.ToString());
 		StressMode = false;
-		Camera.GetComponent<CameraManager>().YOffset -= 100;
+//		Camera.GetComponent<CameraManager>().YOffset -= 100;
 		ClimaxMode = false;
 		CurrentLevel = lvl;
 		if (lvl == 1)
@@ -146,13 +146,13 @@ public class GameManager : MonoBehaviour {
 		else if (lvl == 2)
 		{
 			Player.transform.position = Spawn2.transform.position;
-			Player.transform.RotateAround(transform.position, Vector3.up, 180);
+			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
 			LeftToRight = false;
 		}
 		else
 		{
 			Player.transform.position = Spawn3.transform.position;
-			Player.transform.RotateAround(transform.position, Vector3.up, 180);
+			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
 			LeftToRight = true;
 		}
 

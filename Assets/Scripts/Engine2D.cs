@@ -29,7 +29,7 @@ public class Engine2D : MonoBehaviour
 	{
 		if (Body.velocity.y == 0)
 		{
-			Debug.Log ("grounded = " + Grounded.ToString());
+//			Debug.Log ("grounded = " + Grounded.ToString());
 			Grounded = true;
 			playermove.animator.SetInteger("state", 0);
 		}
