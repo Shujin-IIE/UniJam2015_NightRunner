@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour {
 	private GameObject Player;
 
 	[SerializeField]
+	private GameObject Canvas;
+
+	[SerializeField]
 	private GameObject Spawn1;
 	[SerializeField]
 	private GameObject Spawn2;
@@ -108,7 +111,8 @@ public class GameManager : MonoBehaviour {
 				}
 				else if (Input.GetKey(KeyCode.LeftArrow))
 				{
-					OnNormalMode(CurrentLevel+1);
+					OnVictory();
+//					OnNormalMode(CurrentLevel+1);
 				}
 			}
 			else
@@ -119,7 +123,8 @@ public class GameManager : MonoBehaviour {
 				}
 				else if (Input.GetKey(KeyCode.RightArrow))
 				{
-					OnNormalMode(CurrentLevel+1);
+					OnVictory();
+//					OnNormalMode(CurrentLevel+1);
 				}
 			}
 		}
@@ -138,6 +143,7 @@ public class GameManager : MonoBehaviour {
 
 	private void OnClimaxMode()
 	{
+		Canvas.SetActive(true);
 		Debug.Log ("Switch to climax mode");
 		StressMode = false;
 		ClimaxMode = true;
@@ -145,6 +151,10 @@ public class GameManager : MonoBehaviour {
 		var ambiance = Camera.GetComponent<ambianceManager> ();
 		ambiance.zone = "danger";
 		ambiance.temps = 0.0f;
+	}
+
+	private void OnVictory () {
+		Application.LoadLevel(3);
 	}
 
 	private void OnNormalMode(int lvl)
@@ -183,6 +193,7 @@ public class GameManager : MonoBehaviour {
 
 	public void OnGameOver()
 	{
+		Application.LoadLevel(2);
 		Debug.Log ("Game Over !");
 	}
 
