@@ -142,33 +142,29 @@ public class GameManager : MonoBehaviour {
 //		Camera.GetComponent<CameraManager>().YOffset -= 100;
 		ClimaxMode = false;
 		CurrentLevel = lvl;
-		if (lvl == 1)
-		{
+		if (lvl == 1) {
 			Camera.GetComponent<ambianceManager> ().lvl = 1;
 			Player.transform.position = Spawn1.transform.position;
 			LeftToRight = true;
-		}
-		else if (lvl == 2)
-		{
+		} else if (lvl == 2) {
 			Camera.GetComponent<ambianceManager> ().lvl = 2;
 			Player.transform.position = Spawn2.transform.position;
-			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
+			Player.transform.RotateAround (Player.transform.position, Vector3.up, 180);
 			LeftToRight = false;
-		}
-		else
-		{
+		} else if (lvl == 3) {
 			Camera.GetComponent<ambianceManager> ().lvl = 3;
 			Player.transform.position = Spawn3.transform.position;
-			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
+			Player.transform.RotateAround (Player.transform.position, Vector3.up, 180);
 			LeftToRight = true;
+		} else {
+			Application.LoadLevel(3);
 		}
-
 		Camera.GetComponent<ambianceManager>().zone = "calme";
 	}
 
 	private void OnGameOver()
 	{
-		Debug.Log ("Game Over !");
+		Application.LoadLevel (2);
 	}
 
 	private void CheckForGameOver()
