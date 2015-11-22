@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour {
 	private GameObject Player;
 
 	// Camera offset init from the camera initial position
-	private float XOffset;
+	public float XOffset;
 	public float YOffset;
 	private float ZOffset;
 	

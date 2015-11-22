@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	private int CurrentLevel;
+	public int CurrentLevel;
 
 	private bool LeftToRight = true;
 
@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour {
 
 	private void OnNormalMode(int lvl)
 	{
+		lvl++;
 		Debug.Log ("Switch to normal mode for lvl " + lvl.ToString());
 		StressMode = false;
 //		Camera.GetComponent<CameraManager>().YOffset -= 100;
@@ -163,6 +164,7 @@ public class GameManager : MonoBehaviour {
 		else if (lvl == 2)
 		{
 			Camera.GetComponent<ambianceManager> ().lvl = 2;
+			Camera.GetComponent<CameraManager>().XOffset = -Camera.GetComponent<CameraManager>().XOffset;
 			Player.transform.position = Spawn2.transform.position;
 			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
 			LeftToRight = false;
@@ -170,8 +172,9 @@ public class GameManager : MonoBehaviour {
 		else
 		{
 			Camera.GetComponent<ambianceManager> ().lvl = 3;
+//			Camera.GetComponent<CameraManager>().XOffset = -Camera.GetComponent<CameraManager>().XOffset;
 			Player.transform.position = Spawn3.transform.position;
-			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
+//			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
 			LeftToRight = true;
 		}
 
