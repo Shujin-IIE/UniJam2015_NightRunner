@@ -26,9 +26,10 @@ public class WhiteNoise : MonoBehaviour {
 		whiteNoise.color = new Color (1f, 1f, 1f, opacity);
 		audio = GetComponent<AudioSource> ();
 		audio.clip = glitch;
+		audio.loop = false;
 		audio.Play ();
 		whiteNoisePrefab.transform.parent = Camera.main.transform;
-		whiteNoisePrefab.transform.Translate(new Vector3 (0.5f, 1f, -2.69f));
+		whiteNoisePrefab.transform.Translate(new Vector3 (3.0f, 1f, -3.69f));
 	}
 	
 	void Update () {
@@ -38,6 +39,7 @@ public class WhiteNoise : MonoBehaviour {
 		//whiteNoisePrefab.transform.position = new Vector3(player.transform.position.x + xOffset, yOffset, player.transform.position.z + zOffset);
 
 		if (time > duration) {
+			GameObject.Find("Main Camera").GetComponent<ambianceManager>().interuptor = true;
 			Destroy(gameObject.GetComponent<WhiteNoise>());
 			Destroy (whiteNoisePrefab);
 		}

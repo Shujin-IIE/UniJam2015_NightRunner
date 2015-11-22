@@ -29,7 +29,7 @@ public class Lum : MonoBehaviour {
 		xMin = transform.localPosition.x + xMin;
 		yMin = transform.localPosition.y + yMin;
 
-		volume = 1.0f;
+		volume = 0.5f;
 
 		lm = GameObject.Find("Point light").GetComponent<LightManager>();
 	}

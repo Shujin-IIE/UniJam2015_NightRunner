@@ -11,28 +11,33 @@ public class ambianceManager : MonoBehaviour {
 	private float duration;
 
 	public string zone;
-
+	public int lvl;
 	private AudioSource audioMusic;
 	private AudioSource audioHeartBeat;
 
-	private float temps;
+	public float temps;
 	private float noiseDuration;
 	[SerializeField]
 	private AudioClip[] glitchs;
+
+	public bool interuptor;
 
 	void Start () {
 		//WhiteNoise noise = gameObject.AddComponent<WhiteNoise> ();
 		//noise.Create(whiteNoisePrefab, player, 0.5f, 4f);
 		zone = "sage";
+		lvl = 1;
 		audioMusic = GetComponents<AudioSource> ()[0];
 		audioHeartBeat = GetComponents<AudioSource> () [1];
 		audioHeartBeat.loop = true;
 		audioMusic.loop = true;
 		temps = 0f;
+		interuptor = true;
 		//StartCoroutine("FadeIn",audio);
 	}
 	
 	void Update () {
+		//Debug.Log (temps);
 		temps += Time.deltaTime;
 		if (zone == "sage") {
 			FadeIn (audioMusic.volume, audioMusic, 0.7f , 0.13f);
@@ -42,12 +47,21 @@ public class ambianceManager : MonoBehaviour {
 		{
 			FadeOut (audioMusic.volume, audioMusic, 0.0f, 0.1f);
 			FadeIn (audioHeartBeat.volume, audioHeartBeat, 1.0f, 0.13f);
+
+			if (lvl == 1){
+
+				glitch(3.0f,0);
+				glitch(4.0f,3);
+				glitch(6.0f,1);
+				glitch(7.1f,2);
+				glitch(7.9f,2);
+			}
 		}
 		else if (zone == "danger") 
 		{
 			
 		}
-		if (Input.GetKeyDown("a")) {
+		/*if (Input.GetKeyDown("a")) {
 			zone = "stress";
 		}
 		if (Input.GetKeyDown("b")) {
@@ -55,7 +69,7 @@ public class ambianceManager : MonoBehaviour {
 		}
 		if (Input.GetKeyDown("c")) {
 			generateGlitch (1);
-		}
+		}*/
 	}
 	
 	void FadeIn(float volume, AudioSource audio, float volumeMax , float speed) {
@@ -94,6 +108,14 @@ public class ambianceManager : MonoBehaviour {
 		}
 		//return volume;
 	}*/
+
+	void glitch(float t1, int glitch){
+		var t2 = t1 + 0.29f;
+		if ( temps > t1 && interuptor && temps < t2) {
+			interuptor = false;
+			generateGlitch(glitch);
+		}	
+	}
 
 	void generateGlitch(int prefab){
 		switch (prefab) 
