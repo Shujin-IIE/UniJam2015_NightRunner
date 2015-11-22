@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 
 	private bool ClimaxMode = false;
 
+
 	[SerializeField]
 	private GameObject Player;
 

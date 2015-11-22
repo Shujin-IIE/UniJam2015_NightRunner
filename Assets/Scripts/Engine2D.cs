@@ -12,6 +12,8 @@ public class Engine2D : MonoBehaviour
 
 	bool Grounded = true;
 
+	private PlayerMove playermove;
+
 
 	private void Start()
 	{
@@ -20,6 +22,7 @@ public class Engine2D : MonoBehaviour
 		{
 			Debug.LogWarning("Engine2D : Rigidbody not found");
 		}
+		playermove = GetComponent<PlayerMove>();
 	}
 
 	private void Update()
@@ -28,7 +31,7 @@ public class Engine2D : MonoBehaviour
 		{
 			Debug.Log ("grounded = " + Grounded.ToString());
 			Grounded = true;
-			
+			playermove.animator.SetInteger("state", 0);
 		}
 	}
 
