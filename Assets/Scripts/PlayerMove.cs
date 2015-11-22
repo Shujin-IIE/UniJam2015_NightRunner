@@ -18,6 +18,10 @@ public class PlayerMove : MonoBehaviour {
 	[SerializeField]
 	private AudioClip runLoop;
 
+	public bool isGrounded = true;
+
+//	public float threshold = 0.3f;
+
 	private void Start ()
 	{
 		Engine = GetComponent<Engine2D>();
@@ -47,10 +51,22 @@ public class PlayerMove : MonoBehaviour {
 			Engine.Jump();
 		}
 	}
-	
+
+	void OnCollisionrEnter (Collider other) {
+		if (other.CompareTag ("Stage1") || other.CompareTag("Stage2") || other.CompareTag("Stage3")) {
+			isGrounded = true;
+		}
+	}
+
+	void OnCollisionExit () {
+		isGrounded = false;
+	}
 
 	private bool IsGrounded()
 	{
+//		Debug.Log ("isGrounded: " + isGrounded);
+//		return isGrounded;
+//		return transform.position.y < threshold;
 		return Physics.Raycast(transform.position, -Vector3.up, PivotToGround + 0.5f);
 	}
 

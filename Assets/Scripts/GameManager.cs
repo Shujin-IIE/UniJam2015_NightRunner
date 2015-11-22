@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour {
 		Debug.Log ("Switch to stress mode");
 		StressMode = true;
 		ClimaxMode = false;
+
+		Camera.GetComponent<ambianceManager>().zone = "stress";
 	}
 
 	private void OnClimaxMode()
@@ -124,6 +126,8 @@ public class GameManager : MonoBehaviour {
 		Debug.Log ("Switch to climax mode");
 		StressMode = false;
 		ClimaxMode = true;
+
+		Camera.GetComponent<ambianceManager>().zone = "danger";
 	}
 
 	private void OnNormalMode(int lvl)
@@ -150,6 +154,8 @@ public class GameManager : MonoBehaviour {
 			Player.transform.RotateAround(transform.position, Vector3.up, 180);
 			LeftToRight = true;
 		}
+
+		Camera.GetComponent<ambianceManager>().zone = "calme";
 	}
 
 	private void OnGameOver()

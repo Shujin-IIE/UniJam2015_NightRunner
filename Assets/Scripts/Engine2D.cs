@@ -32,6 +32,7 @@ public class Engine2D : MonoBehaviour
 
 	public void Jump()
 	{
-		Body.velocity = new Vector3(Body.velocity.x, Body.velocity.y + JumpHeigth, Body.velocity.z);
+//		Body.AddForce(new Vector3(0, JumpHeigth, 0), ForceMode.Impulse);
+		Body.velocity = new Vector3(Body.velocity.x, JumpHeigth, Body.velocity.z);
 	}
 }
