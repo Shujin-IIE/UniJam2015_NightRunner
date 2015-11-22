@@ -141,11 +141,13 @@ public class GameManager : MonoBehaviour {
 		else if (lvl == 2)
 		{
 			Player.transform.position = Spawn2.transform.position;
+			Player.transform.RotateAround(transform.position, Vector3.up, 180);
 			LeftToRight = false;
 		}
 		else
 		{
 			Player.transform.position = Spawn3.transform.position;
+			Player.transform.RotateAround(transform.position, Vector3.up, 180);
 			LeftToRight = true;
 		}
 	}
