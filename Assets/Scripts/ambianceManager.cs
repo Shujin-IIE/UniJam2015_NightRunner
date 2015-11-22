@@ -26,6 +26,8 @@ public class ambianceManager : MonoBehaviour {
 		zone = "sage";
 		audioMusic = GetComponents<AudioSource> ()[0];
 		audioHeartBeat = GetComponents<AudioSource> () [1];
+		audioHeartBeat.loop = true;
+		audioMusic.loop = true;
 		temps = 0f;
 		//StartCoroutine("FadeIn",audio);
 	}
@@ -52,7 +54,7 @@ public class ambianceManager : MonoBehaviour {
 			zone = "stage";
 		}
 		if (Input.GetKeyDown("c")) {
-			generateGlitch (2);
+			generateGlitch (1);
 		}
 	}
 	
