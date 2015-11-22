@@ -119,7 +119,9 @@ public class GameManager : MonoBehaviour {
 		StressMode = true;
 		ClimaxMode = false;
 
-		Camera.GetComponent<ambianceManager>().zone = "stress";
+		var ambiance = Camera.GetComponent<ambianceManager> ();
+		ambiance.zone = "stress";
+		ambiance.temps = 0.0f;
 	}
 
 	private void OnClimaxMode()
@@ -128,31 +130,36 @@ public class GameManager : MonoBehaviour {
 		StressMode = false;
 		ClimaxMode = true;
 
-		Camera.GetComponent<ambianceManager>().zone = "danger";
+		var ambiance = Camera.GetComponent<ambianceManager> ();
+		ambiance.zone = "danger";
+		ambiance.temps = 0.0f;
 	}
 
 	private void OnNormalMode(int lvl)
 	{
 		Debug.Log ("Switch to normal mode for lvl " + lvl.ToString());
 		StressMode = false;
-		Camera.GetComponent<CameraManager>().YOffset -= 100;
+//		Camera.GetComponent<CameraManager>().YOffset -= 100;
 		ClimaxMode = false;
 		CurrentLevel = lvl;
 		if (lvl == 1)
 		{
+			Camera.GetComponent<ambianceManager> ().lvl = 1;
 			Player.transform.position = Spawn1.transform.position;
 			LeftToRight = true;
 		}
 		else if (lvl == 2)
 		{
+			Camera.GetComponent<ambianceManager> ().lvl = 2;
 			Player.transform.position = Spawn2.transform.position;
-			Player.transform.RotateAround(transform.position, Vector3.up, 180);
+			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
 			LeftToRight = false;
 		}
 		else
 		{
+			Camera.GetComponent<ambianceManager> ().lvl = 3;
 			Player.transform.position = Spawn3.transform.position;
-			Player.transform.RotateAround(transform.position, Vector3.up, 180);
+			Player.transform.RotateAround(Player.transform.position, Vector3.up, 180);
 			LeftToRight = true;
 		}
 
