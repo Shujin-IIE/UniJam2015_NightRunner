@@ -52,8 +52,8 @@ public class PlayerMove : MonoBehaviour {
 		Engine.Move(hor, 0);
 		if (ver > 0 && IsGrounded())
 		{
-			Engine.Jump();
 			animator.SetInteger("state", 1);
+			Engine.Jump();
 		}
 	}
 
